@@ -69,3 +69,30 @@ If it all went well, you're ready to spin up the server. Simply run:
 ```
 node server.js
 ```
+### Initiate Request
+
+Your script needs to reside in `bin/` directory. It could be bat or bash script extended with `.sh` or `.bat`. The `Node.js` recognize the host platform / os and then either run `.sh` or `.bat` file respectively.
+
+Here is the sample request how it should looks like:
+```
+GET http://172.17.0.1:81/command/say_hello
+{
+  "ok": true,
+  "jobId": "b2259c2d-073a-4b3f-95a1-b20cfaea0391",
+  "task": "say_hello",
+  "host": "3bc662375d8e",
+  "time": 1450546645820,
+  "q": true
+}
+```
+
+Please note that `say_hello` is a name of the script resides in `bin/` directory of the operand VM.
+
+- OK : Check if it went well.
+- JOBID : The unique ID of the task.
+- TASK : The name of the bash script.
+- HOST : Unique identifier of the instance.
+- TIME : The time when it was executed.
+- Q : Your job is `queued` well.
+
+You will aparently also find the same response in the `app.log` file of the server.
