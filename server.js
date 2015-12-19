@@ -4,6 +4,11 @@ var express = require('express');
 var app = express();
 var uuid = require('uuid');
 var winston = require('winston');
+var request = require('request');
+
+
+var CONTROLLER_HOST = '52.24.82.65:81';
+var HTTP_PROTOCOL = 'http://';
 
 winston.add(winston.transports.File, { filename: 'app.log' });
 
@@ -45,7 +50,17 @@ app.get('/command/:command', function (req, res) {
 
       response.result = result;
       winston.log('info', '/command/' + command, response);
-      console.log(response);
+      // Acknowledge the callback.
+      var url = HTTP_PROTOCOL + CONTROLLER_HOST + '?result=' + JSON.stringify(response);
+      request(url, function(error, res, body) {
+        body = typeof body == 'string' ? JSON.parse(body) : body;
+        if (error || res.statusCode !== 200 || !body.ok) {
+          return winston.log('error', '/command/' + command, response);
+        }
+
+        response.delivered = true;
+        winston.log('info', '/command/' + command, response);
+      });
     });
   });
 
