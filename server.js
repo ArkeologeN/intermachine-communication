@@ -20,6 +20,7 @@ app.get('/command/:command', function (req, res) {
   var response = {
     ok: true,
     jobId: jobId,
+    task: command,
     host: process.env.HOSTNAME,
     time: +new Date()
   };
@@ -38,8 +39,8 @@ app.get('/command/:command', function (req, res) {
       if (err) {
         // Something went wrong.
         response.err = err;
-        winston.log('info', '/command/' + command, response);
-        return console.log(response);
+          winston.log('info', '/command/' + command, response);
+          return console.log(response);
       }
 
       response.result = result;
