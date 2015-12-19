@@ -1,0 +1,24 @@
+{
+  "name": "intermachine-communication",
+  "version": "1.0.0",
+  "description": "Internal Machine communication via API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArkeologeN/intermachine-communication.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArkeologeN/intermachine-communication/issues"
+  },
+  "homepage": "https://github.com/ArkeologeN/intermachine-communication#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "uuid": "^2.0.1",
+    "winston": "^2.1.1"
+  }
+}
