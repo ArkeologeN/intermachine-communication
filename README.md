@@ -75,7 +75,7 @@ Your script needs to reside in `bin/` directory. It could be bat or bash script 
 
 Here is the sample request how it should looks like:
 ```
-GET http://172.17.0.1:81/command/say_hello
+GET http://172.17.0.1:81/command/say_hello?authKey=<authKey>&param1=hello&param2=world
 {
   "ok": true,
   "jobId": "b2259c2d-073a-4b3f-95a1-b20cfaea0391",
@@ -95,4 +95,4 @@ Please note that `say_hello` is a name of the script resides in `bin/` directory
 - TIME : The time when it was executed.
 - Q : Your job is `queued` well.
 
-You will aparently also find the same response in the `app.log` file of the server.
+You will apparently also find the same response in the `app.log` file of the server.

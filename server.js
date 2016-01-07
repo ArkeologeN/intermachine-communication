@@ -6,7 +6,6 @@ var uuid = require('uuid');
 var winston = require('winston');
 var request = require('request');
 
-
 var CONTROLLER_HOST = '52.24.82.65:81';
 var HTTP_PROTOCOL = 'http://';
 var AUTH_KEY = 'f8b37652-4c12-4b64-8936-67097298f11b';
